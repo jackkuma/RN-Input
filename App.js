@@ -54,6 +54,7 @@ export default function App() {
           onSubmitEditing = {() => vaildKeyin()}
           onSubmitEditing={Keyboard.dismiss}
         />
+        <Text style={[styles.message, styles.remark]}>*密碼請輸入6位英數字</Text>
         <TextInput
           style={styles.inputType}
           onChangeText={(text) => setValidCode(text)}
@@ -149,6 +150,10 @@ const styles = StyleSheet.create({
   },
   warning: {
     color: '#fa163f',
+  },
+  remark: {
+    color: '#f15823',
+    fontSize: 14,
   },
   inputType: {
     backgroundColor: '#f5f5f5',
