@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Keyboard } from 'react-native';
-
+//鍵盤狀態判斷
 export default function App() {
   useEffect(() => {
     Keyboard.addListener('keyboardDidShow')
@@ -24,6 +24,7 @@ export default function App() {
       return <Text style={[styles.message, styles.warning]}>手機號碼輸入錯誤！</Text>
     }
   }
+  
   const vaildCode = () => {
     if (confirmCode.length == '') {
       return <Text style={styles.message}>密碼檢核</Text>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 3,
-    elevation: 3,
+    elevation: 3, //Android css hack
     textAlign: 'center',
   },
   footerBox: {
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     color: '#f3f3f3',
     fontSize: 30,
     fontWeight: '700',
-    overflow: 'hidden',
+    overflow: 'hidden', //iOS css hack
     textAlign: 'center',
     lineHeight: 60,
     marginBottom: 5,
