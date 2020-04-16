@@ -70,7 +70,7 @@ export default function App() {
         <TouchableOpacity style={styles.resetBtn} onPress={() => resetCount()}>
           <Image
             style={styles.resetIcon}
-            source={{uri: 'https://lh3.googleusercontent.com/proxy/WA58-uhKJClOypDAe4XwERgNUsJUng5EGOrGezGhLLu9KpTHYfDVVqc12McpaLZg3mVPvXHI3c0l-uB8T4IhvWJ0lmgY58M1ewH_p6_ZUt2glEP8xC4bo-YBSODn3bWkdQ'}}
+            source={{uri: 'https://www.chrisign.ch/documents/blog/16x9/og_reload_icon_iconspider.jpg'}}
           />
         </TouchableOpacity>
 
