@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TextInput, Keyboard, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Keyboard, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import WifiImg from './src/images/wifi.png'
 import OnlineImg from './src/images/online.png'
 
@@ -34,39 +34,41 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
-        {/* wifi連結狀態顯示判斷 */}
-        {typeCode ? (confirmCode ?
-         <Image source={OnlineImg} /> : <Image source={WifiImg} />)
-         : <Image source={WifiImg} />
-        }
-      </View>
-      <Text style={styles.titleText}>Free Wifi</Text>
-      <View style={styles.contentBox}>
-        {/* 提示文字顯示判斷 */}
-        {typeCode ? (confirmCode ?
-         <Text style={[styles.message, {color: '#21bf73'}]}>密碼正確，已連結</Text>
-          : <Text style={[styles.message, {color: '#fa163f'}]}>密碼有誤！無法連結</Text>)
-          : <Text style={[styles.message, {color: '#0073b0'}]}>請輸入wifi密碼</Text>
-        }
-        
-        <TextInput
-          style={styles.inputType}
-          onChangeText={(text) => setValidCode(text)}
-          value={validCode}
-          maxLength={6}
-          placeholder='請輸入密碼'
-          keyboardType='numeric'
-          secureTextEntry={true}
-          returnKeyLabel='Done'
-          returnKeyType='done'
-          onSubmitEditing={Keyboard.dismiss}
-        />
+      <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30} >
+        <View>
+          {/* wifi連結狀態顯示判斷 */}
+          {typeCode ? (confirmCode ?
+          <Image style={styles.imgCenter} source={OnlineImg} /> : <Image style={styles.imgCenter} source={WifiImg} />)
+          : <Image style={styles.imgCenter} source={WifiImg} />
+          }
+        </View>
+        <Text style={styles.titleText}>Free Wifi</Text>
+        <View style={styles.contentBox}>
+          {/* 提示文字顯示判斷 */}
+          {typeCode ? (confirmCode ?
+          <Text style={[styles.message, {color: '#21bf73'}]}>密碼正確，已連結</Text>
+            : <Text style={[styles.message, {color: '#fa163f'}]}>密碼有誤！無法連結</Text>)
+            : <Text style={[styles.message, {color: '#0073b0'}]}>請輸入wifi密碼</Text>
+          }
+          
+          <TextInput
+            style={styles.inputType}
+            onChangeText={(text) => setValidCode(text)}
+            value={validCode}
+            maxLength={6}
+            placeholder='請輸入密碼'
+            keyboardType='numeric'
+            secureTextEntry={true}
+            returnKeyLabel='Done'
+            returnKeyType='done'
+            onSubmitEditing={Keyboard.dismiss}
+          />
 
-        <TouchableOpacity style={styles.btn} onPress={() => wifiState()}>
-          <Text style={styles.btnText}>輸入驗證</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.btn} onPress={() => wifiState()}>
+            <Text style={styles.btnText}>輸入驗證</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '600',
     marginBottom: 10,
+    textAlign: 'center',
   },
   message: {
     fontSize: 21,
@@ -118,5 +121,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 21,
     textAlign: 'center',
+  },
+  imgCenter: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
   }
 });
