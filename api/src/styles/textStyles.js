@@ -55,7 +55,9 @@ export default StyleSheet.create({
     },
     giftName: {
         borderRadius: 16,
+        overflow: 'hidden', //ios
         fontSize: 21,
+        fontWeight: '600',
         textAlign:'center',
         marginTop: -12,
         marginLeft: 8,
@@ -63,8 +65,8 @@ export default StyleSheet.create({
     },
     storeText: {
         backgroundColor: '#ff926b',
-        fontSize: 14,
-        padding: 6,
+        fontSize: 13,
+        padding: 5,
         paddingLeft: 16,
         letterSpacing: 1,
     },
